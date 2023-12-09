@@ -9,7 +9,7 @@ int maxSubSum(int a[], int n, int& maxBegin, int& maxEnd){
             b += a[i];
         }else{
             b = a[i];
-            s = i;
+            s = i;      //用s来记录获得最大字段和子段的起始位置
         }
         if(b > sum){
             sum = b;
@@ -34,7 +34,7 @@ int maxMSubSum(int m, int n, int *a){
     }
     for(i = 1;i<=m;i++){        //划分为的段数进行遍历
         for(j = i;j <= n-m+i;j++){      //j >= i，并且要保证后面的元素也能划分成n-m+i段
-            if(j == i){
+            if(j == i){     //如果前j项被分成了i段
                 b[i][j] = b[i-1][j-1] + a[j];
             }else{
                 b[i][j] = b[i][j-1] + a[j];

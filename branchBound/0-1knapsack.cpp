@@ -38,7 +38,7 @@ int bestp;
 Object obj[100];
 int bestx[100];     //最佳方案
 
-//计算从第i层开始，后面价值的最大值
+//计算从第i个顶点开始，后面价值的最大值
 int Bound(int i){
     int tmp_cleft = c- cw;
     int tmp_cp = cp;
@@ -89,7 +89,7 @@ void MaxKnapsack(){
         cw = E->weight;
         cp = E->profit;
         up = E->upprofit;
-        i = E->lev;
+        i = E->lev;         //lev表示在自己空间树所在的层次
     }
     //到达叶子结点
     for(int j=n;j>0;j--){

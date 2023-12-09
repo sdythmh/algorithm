@@ -18,11 +18,11 @@ void Triangle::BackTrack(int t){
     if(t > n){//找到了叶子结点
         sum++;
     }else{      //不是叶子结点
-        for(int i=0;i<=1;i++){
+        for(int i=0;i<=1;i++){          //分为左右两个分支（0代表+，1代表-）
             p[1][t] = i;            //这个代表第一行的符号是+（0）还是-（1）
             count +=i;
             for(int j=2;j<=t;j++){
-                p[j][t-j+1] = p[j-1][t-j+1] ^ p[j-1][t-j+2];
+                p[j][t-j+1] = p[j-1][t-j+1] ^ p[j-1][t-j+2];        //根据上一行把下面的值计算出来
                 count += p[j][t-j+1];
             }
             BackTrack(t+1);
@@ -38,7 +38,7 @@ int compute(int n){
     X.n = n;
     X.half = n*(n+1)/2;
     X.sum = 0;
-    if(X.half %2 == 1){
+    if(X.half %2 == 1){         //如果+和-个数一样多，它们相加一定是偶数
         return 0;
     }
     X.half /= 2;

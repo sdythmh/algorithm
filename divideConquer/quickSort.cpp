@@ -5,7 +5,7 @@ using namespace std;
 
 int myPartition(int nums[], int left, int right){
     srand((unsigned)time(NULL));
-    int random = (rand() % (right- left + 1)) + left;
+    int random = (rand() % (right- left + 1)) + left;           //区间长度为right-left+1，起点为left的范围内
     swap(nums[left],nums[random]);
 
     int le = left+1;

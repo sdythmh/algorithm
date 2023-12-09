@@ -1,11 +1,11 @@
 #include <iostream>
 using namespace std;
 
-int dtower(int **a, int **s, int n){
+int dtower(int **a, int **s, int n){        //用a来表示数字塔，用s来存储结果
     for(int i = 1; i<=n;i++){
         s[n][i] = a[n][i];
     }
-    for(int i=n-1;i>=1;i--){
+    for(int i=n-1;i>=1;i--){        //从倒数第二行开始
         for(int j=1;j<=i;j++){
             s[i][j] = a[i][j] + ((s[i+1][j] > s[i+1][j+1]) ? s[i+1][j] : s[i+1][j+1]);//+的优先级大于三目运算符qaq
         }

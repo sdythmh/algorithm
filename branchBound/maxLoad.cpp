@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef struct QNode
+typedef struct QNode        //QNode结点记录了每一种情况（即每一个物品到底装还是不装）
 {
     QNode *parent;
     int lchild;
@@ -33,7 +33,7 @@ void EnQueue(queue<QNode *> &q, int wt, int i, QNode *E, QNode *&bestE, int ch)
 int MaxLoading()
 {
     queue<QNode *>q;
-    q.push(0);
+    q.push(0);          //用0来分层
     int i = 1;
     int Ew = 0, r = 0;
     bestw = 0;

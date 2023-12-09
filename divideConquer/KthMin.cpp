@@ -33,7 +33,7 @@ int mySelect(int nums[], int left, int right, int k){
         return nums[left];
     }
     int pivotIndex = myPartition(nums,left,right);
-    int j = pivotIndex - left + 1;
+    int j = pivotIndex - left + 1;      //j表示pivotIndex左边长度，如果小于k，则不需要比较前面的元素
     if(k <= j){
         return mySelect(nums,left,pivotIndex,k);        //这里的右边界设置为PivotIndex而不是PivotIndex-1，因为可能PivotIndex位置处的值刚好为所求
     }else{
@@ -59,3 +59,12 @@ int main(){
     system("pause");
     return 0;
 }
+
+/*
+input
+6
+7 3 1 2 5 4
+3
+output
+3
+*/

@@ -16,7 +16,7 @@ class Knapsack{
     double bound(int i);
 };
 
-void Knapsack::sortByValue(Knapsack k){
+void Knapsack::sortByValue(Knapsack k){         //采用类似选择排序的方法
     int s;
     double temp1, temp2;
     for(int i=1;i<k.n;i++){

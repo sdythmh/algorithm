@@ -10,10 +10,10 @@ void chessBoard(int tr, int tc, int dr, int dc ,int size){
     int t = tile++;
     int s = size/2;
     //覆盖左上角
-    if(dr < s + tr && dc < s + tc){
+    if(dr < s + tr && dc < s + tc){         //如果特殊方格在左上角
         chessBoard(tr,tc,dr,dc,s);
     }else{
-        board[tr+s-1][tc+s-1] = t;
+        board[tr+s-1][tc+s-1] = t;          //特殊方格覆盖左上角的右下角
         chessBoard(tr,tc,tr+s-1,tc+s-1,s);
     }
     //覆盖右上角
@@ -58,3 +58,14 @@ int main(){
     system("pause");
     return 0;
 }
+
+/*
+input
+4
+2 4
+output
+2 2 3 3
+2 1 3 0
+4 1 1 5
+4 4 5 5
+*/

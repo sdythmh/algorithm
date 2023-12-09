@@ -13,7 +13,7 @@ class Queen{
 
 bool Queen::Place(int k){
     for(int j= 1;j<k;j++){
-        if(abs(k-j) == abs(x[k] - x[j]) || x[j] == x[k]){
+        if(abs(k-j) == abs(x[k] - x[j]) || x[j] == x[k]){       //和之前的皇后位置不能重叠也不能在对角线上
             return false;
         }
     }
@@ -25,9 +25,9 @@ void Queen::BackTrack(int t){
         sum++;
     }else{
         for(int i=1;i<=n;i++){
-            x[t] = i;
-            if(Place(t)){
-                BackTrack(t+1);
+            x[t] = i;           //假定先把第t个皇后放在i位置
+            if(Place(t)){       //如果能放
+                BackTrack(t+1); //则继续放第t+1个皇后
             }
         }
     }

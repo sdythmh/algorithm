@@ -69,7 +69,7 @@ void bfs(){
                 temp = {cur.cl + m[cur.x[t-1]][cur.x[j]], t+1};        //记录处理第t+1个城市
                 //如果找到了下一级结点，这到该结点以上的所有路径和之前的同级路径相同，除了当前这一级不同
                 for(int k=1;k<=n;k++){
-                    temp.x[k] = cur.x[k];
+                    temp.x[k] = cur.x[k];       //赋值时还是全部先赋值，但目前已知的只有t这一级之前的是正确的
                 }
                 swap(temp.x[t],temp.x[j]);  //如：1->2 交换完后 1->3
                 q.push(temp);

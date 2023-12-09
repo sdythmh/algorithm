@@ -33,7 +33,7 @@ float circle::center(int t){
 }
 
 void circle::compute(){
-    float low = 0, high = 0;
+    float low = 0, high = 0;        //low和high分别代表左边界和右边界
     for(int i=1;i<=n;i++){
         if((x[i] - r[i]) < low){
             low = x[i] - r[i];
@@ -42,7 +42,7 @@ void circle::compute(){
             high = x[i] + r[i];
         }
     }
-    if(high - low < min){
+    if(high - low < min){       //如果区间长度比min还小，则把min赋值为区间长度
         min = high-low;
     }
 }

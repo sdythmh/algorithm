@@ -12,7 +12,7 @@ class Clique{
     void backtrack(int t);
 };
 
-void Clique::backtrack(int t){
+void Clique::backtrack(int t){      //t代表当前扩展结点的下一层编号
     if(t > n){//叶子结点
         if(cn > bestn){
             for(int i=1;i<=n;i++){
@@ -24,13 +24,13 @@ void Clique::backtrack(int t){
     }
     bool ok = true;
     for(int i=1;i<t;i++){
-        if(x[i] == 1 && !a[i][t]){      //如果第i个结点已经放入，并且和当前遍历的t个结点相邻
+        if(x[i] == 1 && !a[i][t]){      //如果第i个结点已经放入，并且和当前遍历的t个结点不相邻（如果第t个顶点和之前加入的顶点都相连，则可以加入）
             ok = false;
             break;
         }
     }
     if(ok){
-        x[t] = 1;
+        x[t] = 1;       //加入第t个顶点
         cn++;
         backtrack(t+1);
         cn--;
